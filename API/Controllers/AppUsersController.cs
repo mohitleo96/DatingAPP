@@ -4,14 +4,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Data;
 using API.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class AppUsersController : ControllerBase
+//by using JWT
+//After applying the attribute we should add services in program.cs
+[Authorize]
+    public class AppUsersController : BaseAPIController
     {
 
         private readonly AppUserDb _context;
@@ -21,7 +23,8 @@ namespace API.Controllers
         {
             _context = context;
         }
-
+        // [AllowAnonymous] it helps to access any user
+       
         [HttpGet]
         //here we use IEnumerable because we return all the data in list from a generic class AppUser
         //we use ActionResult because some return types like (return Badrequest) will works. And for multiple return type we use IActionResult

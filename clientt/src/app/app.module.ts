@@ -8,12 +8,12 @@ import { AppComponent } from './app.component';
 @NgModule({
   declarations: [
     AppComponent,
-   
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    //1. add httpclient
+    //1. add httpclient 2.app.component.ts 3.program.cs
     HttpClientModule
   ],
   providers: [],
